@@ -85,8 +85,47 @@ namespace Individuellt_projekt
 
         public static void userMenu()
         {
-            Console.WriteLine("Användarmeny!");
-            Console.ReadKey();
+            Console.Clear();
+            Console.WriteLine("Välj tjänst: \n1. Se dina konton och saldo \n2. Överföring mellan konton \n3. Ta ut pengar \n4. Logga ut");
+
+            int userChoice = Int32.Parse(Console.ReadLine());
+
+            switch (userChoice)
+            {
+                case 1:
+                    accounts();
+                    break;
+                case 2:
+                    transfer();
+                    break;
+                case 3:
+                    withdraw();
+                    break;
+                case 4:
+                    Console.WriteLine("Du loggas nu ut, tryck på valfri tangent för att fortsätta . . .");
+                    Environment.Exit(1);
+                    break;
+                default:
+                    Console.WriteLine("Ogiltligt val!");
+                    break;
+            }
+
+
+        }
+
+        public static void accounts()
+        {
+
+        }
+
+        public static void transfer()
+        {
+
+        }
+
+        public static void withdraw()
+        {
+
         }
     }
 }
