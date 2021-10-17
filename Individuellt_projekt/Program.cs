@@ -52,7 +52,7 @@ namespace Individuellt_projekt
                 string username = Console.ReadLine();
                 Console.WriteLine("Skriv in ditt lösenord");
                 string password = Console.ReadLine();
-                int currentUser = 0;
+                int currentUser = 0; //Avgör vilken användare som är inloggad
 
                 if (username == users[0, 0] && password == users[0, 1])
                 {
@@ -125,25 +125,25 @@ namespace Individuellt_projekt
             return currentUser;
         }
 
-        public static int accountOverview(int currentUser) //Skriver ut kontoinformationen som lagras i "userAccount"
+        public static int accountOverview(int currentUser) //Skriver ut kontoinformation till konsollen.
         {
             if (currentUser == 1) //User 1
             {
                 Console.Clear();
-                double[] amount1 = new double[3];
+                double[] amount1 = new double[3]; //Kontobelopp
 
                 amount1[0] = 20000;
                 amount1[1] = 2500;
                 amount1[2] = 98789.50;
 
                 
-                string[] accName1 = new string[3];
+                string[] accName1 = new string[3]; //Kontonamn
 
                 accName1[0] = "Sparkonto";
                 accName1[1] = "Kortkonto";
                 accName1[2] = "Pensionskonto";
 
-                for (int i = 0; i < amount1.Length; i++)
+                for (int i = 0; i < amount1.Length; i++) //For-loop som skriver ut kontobelopp och kontonamn
                 {
                     Console.Write(accName1[i] + ":");
                     Console.Write(amount1[i]);
@@ -246,7 +246,7 @@ namespace Individuellt_projekt
                 Console.ReadKey();
                 userMenu(5);
             }
-            return currentUser;
+            return currentUser; //Returnerar int currentUser för att undvika felet "not all cod paths return a value"
         }
 
         public static int transfer(int currentUser)
@@ -272,9 +272,8 @@ namespace Individuellt_projekt
                 int transferAccount = Int32.Parse(Console.ReadLine());
                 Console.WriteLine("Välj ett konto att flytta pengar till: \n 1." + accName1[0] + " \n 2." + accName1[1] + " \n 3." + accName1[2]);
                 int recieverAccount = Int32.Parse(Console.ReadLine());
-
                 bool transaction = false;
-                while (transaction == false)
+                while (transaction == false) //While-loop som håller koll på att summan användaren vill flytta ej är högre än beloppet på kontot
                 {
                     Console.WriteLine("Vilken summa vill du överföra?");
                     double sum = Double.Parse(Console.ReadLine());
@@ -288,7 +287,7 @@ namespace Individuellt_projekt
                     {
                         transaction = true;
 
-                        if (transferAccount == 1)
+                        if (transferAccount == 1) // subtraherarr summan från kontot
                         {
                             amount1[0] = amount1[0] - sum;
                         }
@@ -301,7 +300,7 @@ namespace Individuellt_projekt
                             amount1[2] = amount1[2] - sum;
                         }
 
-                        if (recieverAccount == 1)
+                        if (recieverAccount == 1) // Adderar summan till kontot
                         {
                             amount1[0] = amount1[0] + sum;
                         }
@@ -318,7 +317,7 @@ namespace Individuellt_projekt
                 }
                 Console.WriteLine("Ditt nya saldor är:");
 
-                for (int i = 0; i < amount1.Length; i++)
+                for (int i = 0; i < amount1.Length; i++) // For-loop som skriver ut det nya saldot
                 {
                     Console.Write(accName1[i] + ":");
                     Console.Write(amount1[i]);
@@ -326,7 +325,7 @@ namespace Individuellt_projekt
                 }
                 Console.WriteLine("Tryck på enter för att komma till huvudmenyn");
                 Console.ReadKey();
-                userMenu(1);
+                userMenu(1); //Återvänder till metoden "userMenu"
             }
 
 
