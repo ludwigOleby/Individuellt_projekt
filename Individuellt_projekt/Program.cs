@@ -272,37 +272,50 @@ namespace Individuellt_projekt
                 int transferAccount = Int32.Parse(Console.ReadLine());
                 Console.WriteLine("Välj ett konto att flytta pengar till: \n 1." + accName1[0] + " \n 2." + accName1[1] + " \n 3." + accName1[2]);
                 int recieverAccount = Int32.Parse(Console.ReadLine());
-                Console.WriteLine("Vilken summa vill du överföra?");
-                double sum = Double.Parse(Console.ReadLine());
 
+                bool transaction = false;
+                while (transaction == false)
+                {
+                    Console.WriteLine("Vilken summa vill du överföra?");
+                    double sum = Double.Parse(Console.ReadLine());
 
-                if (transferAccount == 1)
-                {
-                    amount1[0] = amount1[0] - sum;
-                }
-                else if (transferAccount == 2)
-                {
-                    amount1[1] = amount1[1] - sum;
-                }
-                else if (transferAccount == 3)
-                {
-                    amount1[2] = amount1[2] - sum;
-                }
+                    if (sum > amount1[0] || sum > amount1[1] || sum > amount1[2])
+                    {
+                        Console.WriteLine("Summan är större än saldot på kontot, välj en mindre summa!");
+                        transaction = false;
+                    }
+                    else
+                    {
+                        transaction = true;
 
-                if (recieverAccount == 1)
-                {
-                    amount1[0] = amount1[0] + sum;
-                }
-                else if (recieverAccount == 2)
-                {
-                    amount1[1] = amount1[1] + sum;
-                }
-                else if (recieverAccount == 3)
-                {
-                    amount1[2] = amount1[2] + sum;
-                }
+                        if (transferAccount == 1)
+                        {
+                            amount1[0] = amount1[0] - sum;
+                        }
+                        else if (transferAccount == 2)
+                        {
+                            amount1[1] = amount1[1] - sum;
+                        }
+                        else if (transferAccount == 3)
+                        {
+                            amount1[2] = amount1[2] - sum;
+                        }
 
+                        if (recieverAccount == 1)
+                        {
+                            amount1[0] = amount1[0] + sum;
+                        }
+                        else if (recieverAccount == 2)
+                        {
+                            amount1[1] = amount1[1] + sum;
+                        }
+                        else if (recieverAccount == 3)
+                        {
+                            amount1[2] = amount1[2] + sum;
+                        }
+                    }
 
+                }
                 Console.WriteLine("Ditt nya saldor är:");
 
                 for (int i = 0; i < amount1.Length; i++)
@@ -315,7 +328,7 @@ namespace Individuellt_projekt
                 Console.ReadKey();
                 userMenu(1);
             }
-        
+
 
             //User 2
             else if (currentUser == 2)
@@ -332,29 +345,41 @@ namespace Individuellt_projekt
                 int transferAccount = Int32.Parse(Console.ReadLine());
                 Console.WriteLine("Välj ett konto att flytta pengar till: \n 1." + accName2[0] + " \n 2." + accName2[1]);
                 int recieverAccount = Int32.Parse(Console.ReadLine());
-                Console.WriteLine("Vilken summa vill du överföra?");
-                double sum = Double.Parse(Console.ReadLine());
 
-                   
-                    if (transferAccount == 1)
+                bool transaction = false;
+                while (transaction == false)
+                {
+                    Console.WriteLine("Vilken summa vill du överföra?");
+                    double sum = Double.Parse(Console.ReadLine());
+                    if (sum > amount2[0] || sum > amount2[1])
                     {
-                        amount2[0] = amount2[0] - sum;
+                        Console.WriteLine("Summan är större än saldot på kontot, välj en mindre summa!");
+                        transaction = false;
                     }
-                    else if (transferAccount == 2)
+                    else
                     {
-                        amount2[1] = amount2[1] - sum;
-                    }
-                    
+                        transaction = true;
+                        if (transferAccount == 1)
+                        {
+                            amount2[0] = amount2[0] - sum;
+                        }
+                        else if (transferAccount == 2)
+                        {
+                            amount2[1] = amount2[1] - sum;
+                        }
 
-                    if (recieverAccount == 1)
-                    {
-                        amount2[0] = amount2[0] + sum;
+
+                        if (recieverAccount == 1)
+                        {
+                            amount2[0] = amount2[0] + sum;
+                        }
+                        else if (recieverAccount == 2)
+                        {
+                            amount2[1] = amount2[1] + sum;
+                        }
                     }
-                    else if (recieverAccount == 2)
-                    {
-                        amount2[1] = amount2[1] + sum;
-                    }
-                    
+                }
+
                 Console.WriteLine("Ditt nya saldor är:");
 
                 for (int i = 0; i < amount2.Length; i++)
@@ -387,42 +412,55 @@ namespace Individuellt_projekt
                 int transferAccount = Int32.Parse(Console.ReadLine());
                 Console.WriteLine("Välj ett konto att flytta pengar till: \n 1." + accName3[0] + " \n 2." + accName3[1] + " \n 3." + accName3[2] + "\n 4." + accName3[3]);
                 int recieverAccount = Int32.Parse(Console.ReadLine());
-                Console.WriteLine("Vilken summa vill du överföra?");
-                double sum = Double.Parse(Console.ReadLine());
 
+                bool transaction = false;
+                while (transaction == false)
+                {
+                    Console.WriteLine("Vilken summa vill du överföra?");
+                    double sum = Double.Parse(Console.ReadLine());
+                    if (sum > amount3[0] || sum > amount3[1] || sum > amount3[2] || sum > amount3[3])
+                    {
+                        Console.WriteLine("Summan är större än saldot på kontot, välj en mindre summa!");
+                        transaction = false;
+                    }
+                    else
+                    {
+                        transaction = true;
 
-                if (transferAccount == 1)
-                {
-                    amount3[0] = amount3[0] - sum;
-                }
-                else if (transferAccount == 2)
-                {
-                    amount3[1] = amount3[1] - sum;
-                }
-                else if (transferAccount == 3)
-                {
-                    amount3[2] = amount3[2] - sum;
-                }
-                else if (transferAccount == 4)
-                {
-                    amount3[3] = amount3[3] - sum;
-                }
+                        if (transferAccount == 1)
+                        {
+                            amount3[0] = amount3[0] - sum;
+                        }
+                        else if (transferAccount == 2)
+                        {
+                            amount3[1] = amount3[1] - sum;
+                        }
+                        else if (transferAccount == 3)
+                        {
+                            amount3[2] = amount3[2] - sum;
+                        }
+                        else if (transferAccount == 4)
+                        {
+                            amount3[3] = amount3[3] - sum;
+                        }
 
-                if (recieverAccount == 1)
-                {
-                    amount3[0] = amount3[0] + sum;
-                }
-                else if (recieverAccount == 2)
-                {
-                    amount3[1] = amount3[1] + sum;
-                }
-                else if (recieverAccount == 3)
-                {
-                    amount3[2] = amount3[2] + sum;
-                }
-                else if (recieverAccount == 4)
-                {
-                    amount3[3] = amount3[3] + sum;
+                        if (recieverAccount == 1)
+                        {
+                            amount3[0] = amount3[0] + sum;
+                        }
+                        else if (recieverAccount == 2)
+                        {
+                            amount3[1] = amount3[1] + sum;
+                        }
+                        else if (recieverAccount == 3)
+                        {
+                            amount3[2] = amount3[2] + sum;
+                        }
+                        else if (recieverAccount == 4)
+                        {
+                            amount3[3] = amount3[3] + sum;
+                        }
+                    }
                 }
                 Console.WriteLine("Ditt nya saldor är:");
 
@@ -453,39 +491,54 @@ namespace Individuellt_projekt
                 int transferAccount = Int32.Parse(Console.ReadLine());
                 Console.WriteLine("Välj ett konto att flytta pengar till: \n 1." + accName4[0] + " \n 2." + accName4[1]);
                 int recieverAccount = Int32.Parse(Console.ReadLine());
-                Console.WriteLine("Vilken summa vill du överföra?");
-                double sum = Double.Parse(Console.ReadLine());
 
-                if (transferAccount == 1)
+                bool transaction = false;
+                while (transaction == false)
                 {
-                    amount4[0] = amount4[0] - sum;
-                }
-                else if (transferAccount == 2)
-                {
-                    amount4[1] = amount4[1] - sum;
-                }
+                    Console.WriteLine("Vilken summa vill du överföra?");
+                    double sum = Double.Parse(Console.ReadLine());
+                    if (sum > amount4[0] || sum > amount4[1])
+                    {
+                        Console.WriteLine("Summan är större än saldot på kontot, välj en mindre summa!");
+                        transaction = false;
+                    }
+                    else
+                    {
+                        transaction = true;
+
+                        if (transferAccount == 1)
+                        {
+                            amount4[0] = amount4[0] - sum;
+                        }
+                        else if (transferAccount == 2)
+                        {
+                            amount4[1] = amount4[1] - sum;
+                        }
 
 
-                if (recieverAccount == 1)
-                {
-                    amount4[0] = amount4[0] + sum;
-                }
-                else if (recieverAccount == 2)
-                {
-                    amount4[1] = amount4[1] + sum;
+                        if (recieverAccount == 1)
+                        {
+                            amount4[0] = amount4[0] + sum;
+                        }
+                        else if (recieverAccount == 2)
+                        {
+                            amount4[1] = amount4[1] + sum;
+                        }
+                    }
                 }
 
-                Console.WriteLine("Ditt nya saldor är:");
+                    Console.WriteLine("Ditt nya saldor är:");
 
-                for (int i = 0; i < amount4.Length; i++)
-                {
-                    Console.Write(accName4[i] + ":");
-                    Console.Write(amount4[i]);
-                    Console.WriteLine();
-                }
-                Console.WriteLine("Tryck på enter för att komma till huvudmenyn");
-                Console.ReadKey();
-                userMenu(4);
+                    for (int i = 0; i < amount4.Length; i++)
+                    {
+                        Console.Write(accName4[i] + ":");
+                        Console.Write(amount4[i]);
+                        Console.WriteLine();
+                    }
+                    Console.WriteLine("Tryck på enter för att komma till huvudmenyn");
+                    Console.ReadKey();
+                    userMenu(4);
+                
             }
 
             //User 5
@@ -509,50 +562,63 @@ namespace Individuellt_projekt
                 int transferAccount = Int32.Parse(Console.ReadLine());
                 Console.WriteLine("Välj ett konto att flytta pengar till: \n 1." + accName5[0] + " \n 2." + accName5[1] + " \n 3." + accName5[2] + "\n 4." + accName5[3] + "\n 5." + accName5[4]);
                 int recieverAccount = Int32.Parse(Console.ReadLine());
-                Console.WriteLine("Vilken summa vill du överföra?");
-                double sum = Double.Parse(Console.ReadLine());
+                bool transaction = false;
+                while (transaction == false)
+                {
+                    Console.WriteLine("Vilken summa vill du överföra?");
+                    double sum = Double.Parse(Console.ReadLine());
+                    if (sum > amount5[0] || sum > amount5[1] || sum > amount5[2] || sum > amount5[3] || sum > amount5[4])
+                    {
+                        Console.WriteLine("Summan är större än saldot på kontot, välj en mindre summa!");
+                        transaction = false;
+                    }
+                    else
+                    {
+                        transaction = true;
 
 
-                if (transferAccount == 1)
-                {
-                    amount5[0] = amount5[0] - sum;
-                }
-                else if (transferAccount == 2)
-                {
-                    amount5[1] = amount5[1] - sum;
-                }
-                else if (transferAccount == 3)
-                {
-                    amount5[2] = amount5[2] - sum;
-                }
-                else if (transferAccount == 4)
-                {
-                    amount5[3] = amount5[3] - sum;
-                }
-                else if (transferAccount == 5)
-                {
-                    amount5[3] = amount5[3] - sum;
-                }
+                        if (transferAccount == 1)
+                        {
+                            amount5[0] = amount5[0] - sum;
+                        }
+                        else if (transferAccount == 2)
+                        {
+                            amount5[1] = amount5[1] - sum;
+                        }
+                        else if (transferAccount == 3)
+                        {
+                            amount5[2] = amount5[2] - sum;
+                        }
+                        else if (transferAccount == 4)
+                        {
+                            amount5[3] = amount5[3] - sum;
+                        }
+                        else if (transferAccount == 5)
+                        {
+                            amount5[3] = amount5[3] - sum;
+                        }
 
-                if (recieverAccount == 1)
-                {
-                    amount5[0] = amount5[0] + sum;
-                }
-                else if (recieverAccount == 2)
-                {
-                    amount5[1] = amount5[1] + sum;
-                }
-                else if (recieverAccount == 3)
-                {
-                    amount5[2] = amount5[2] + sum;
-                }
-                else if (recieverAccount == 4)
-                {
-                    amount5[3] = amount5[3] + sum;
-                }
-                else if (recieverAccount == 5)
-                {
-                    amount5[3] = amount5[3] + sum;
+                        if (recieverAccount == 1)
+                        {
+                            amount5[0] = amount5[0] + sum;
+                        }
+                        else if (recieverAccount == 2)
+                        {
+                            amount5[1] = amount5[1] + sum;
+                        }
+                        else if (recieverAccount == 3)
+                        {
+                            amount5[2] = amount5[2] + sum;
+                        }
+                        else if (recieverAccount == 4)
+                        {
+                            amount5[3] = amount5[3] + sum;
+                        }
+                        else if (recieverAccount == 5)
+                        {
+                            amount5[3] = amount5[3] + sum;
+                        }
+                    }
                 }
 
                 Console.WriteLine("Ditt nya saldor är:");
@@ -591,20 +657,34 @@ namespace Individuellt_projekt
 
                 Console.WriteLine("välj vilket konto du vill ta ut pengar ifrån: \n1." + accName1[0] + "\n 2." + accName1[1] + "\n3." + accName1[2]);
                 int witdrawAccount = Int32.Parse(Console.ReadLine());
-                Console.WriteLine("Hur stor summa vill du ta ut?");
-                int sum = Int32.Parse(Console.ReadLine());
+                bool transaction = false;
+                while (transaction == false)
+                {
+                    Console.WriteLine("Hur stor summa vill du ta ut?");
+                    double sum = Double.Parse(Console.ReadLine());
+                    if (sum > amount1[0] || sum > amount1[1] || sum > amount1[2])
+                    {
+                        Console.WriteLine("Summan är större än saldot på kontot, välj en mindre summa!");
+                        transaction = false;
+                    }
+                    else
+                    {
+                        transaction = true;
 
-                if (witdrawAccount == 1)
-                {
-                    amount1[0] = amount1[0]- sum;
-                }
-                else if (witdrawAccount == 2)
-                {
-                    amount1[1] = amount1[1] - sum;
-                }
-                else if (witdrawAccount == 3)
-                {
-                    amount1[2] = amount1[2] - sum;
+
+                        if (witdrawAccount == 1)
+                        {
+                            amount1[0] = amount1[0] - sum;
+                        }
+                        else if (witdrawAccount == 2)
+                        {
+                            amount1[1] = amount1[1] - sum;
+                        }
+                        else if (witdrawAccount == 3)
+                        {
+                            amount1[2] = amount1[2] - sum;
+                        }
+                    }
                 }
                 Console.WriteLine("Ditt nya saldor är:");
 
@@ -632,28 +712,41 @@ namespace Individuellt_projekt
 
                 Console.WriteLine("välj ett konto att ta ut pengar ifrån: \n1." + accName2[0] + "\n 2." + accName2[1]);
                 int witdrawAccount = Int32.Parse(Console.ReadLine());
-                Console.WriteLine("Hur stor summa vill du ta ut?");
-                int sum = Int32.Parse(Console.ReadLine());
+                bool transaction = false;
+                while (transaction == false)
+                {
+                    Console.WriteLine("Hur stor summa vill du ta ut?");
+                    double sum = Double.Parse(Console.ReadLine());
+                    if (sum > amount2[0] || sum > amount2[1])
+                    {
+                        Console.WriteLine("Summan är större än saldot på kontot, välj en mindre summa!");
+                        transaction = false;
+                    }
+                    else
+                    {
+                        transaction = true;
 
-                if (witdrawAccount == 1)
-                {
-                    amount2[0] = amount2[0] - sum;
+                        if (witdrawAccount == 1)
+                        {
+                            amount2[0] = amount2[0] - sum;
+                        }
+                        else if (witdrawAccount == 2)
+                        {
+                            amount2[1] = amount2[1] - sum;
+                        }
+                        Console.WriteLine("Ditt nya saldor är:");
+                    }
                 }
-                else if (witdrawAccount == 2)
-                {
-                    amount2[1] = amount2[1] - sum;
-                }
-                Console.WriteLine("Ditt nya saldor är:");
 
-                for (int i = 0; i < amount2.Length; i++)
-                {
-                    Console.Write(accName2[i] + ":");
-                    Console.Write(amount2[i]);
-                    Console.WriteLine();
-                }
-                Console.WriteLine("Tryck på enter för att komma till huvudmenyn");
-                Console.ReadKey();
-                userMenu(2);
+                        for (int i = 0; i < amount2.Length; i++)
+                        {
+                            Console.Write(accName2[i] + ":");
+                            Console.Write(amount2[i]);
+                            Console.WriteLine();
+                        }
+                        Console.WriteLine("Tryck på enter för att komma till huvudmenyn");
+                        Console.ReadKey();
+                        userMenu(2);
             }
 
 
@@ -674,24 +767,38 @@ namespace Individuellt_projekt
 
                 Console.WriteLine("Välj ett konto att ta ut pengar ifrån: \n 1." + accName3[0] + " \n 2." + accName3[1] + " \n 3." + accName3[2] + "\n 4." + accName3[3]);
                 int witdrawAccount = Int32.Parse(Console.ReadLine());
-                Console.WriteLine("Hur stor summa vill du ta ut?");
-                int sum = Int32.Parse(Console.ReadLine());
+                bool transaction = false;
+                while (transaction == false)
+                {
+                    Console.WriteLine("Hur stor summa vill du ta ut?");
+                    double sum = Double.Parse(Console.ReadLine());
+                    if (sum > amount3[0] || sum > amount3[1] || sum > amount3[2] || sum > amount3[3])
+                    {
+                        Console.WriteLine("Summan är större än saldot på kontot, välj en mindre summa!");
+                        transaction = false;
+                    }
+                    else
+                    {
+                        transaction = true;
 
-                if (witdrawAccount == 1)
-                {
-                    amount3[0] = amount3[0] - sum;
-                }
-                else if (witdrawAccount == 2)
-                {
-                    amount3[1] = amount3[1] - sum;
-                }
-                else if (witdrawAccount == 3)
-                {
-                    amount3[2] = amount3[2] - sum;
-                }
-                else if (witdrawAccount == 4)
-                {
-                    amount3[3] = amount3[3] - sum;
+
+                        if (witdrawAccount == 1)
+                        {
+                            amount3[0] = amount3[0] - sum;
+                        }
+                        else if (witdrawAccount == 2)
+                        {
+                            amount3[1] = amount3[1] - sum;
+                        }
+                        else if (witdrawAccount == 3)
+                        {
+                            amount3[2] = amount3[2] - sum;
+                        }
+                        else if (witdrawAccount == 4)
+                        {
+                            amount3[3] = amount3[3] - sum;
+                        }
+                    }
                 }
                 Console.WriteLine("Ditt nya saldor är:");
 
@@ -720,16 +827,30 @@ namespace Individuellt_projekt
 
                 Console.WriteLine("Välj ett konto att ta ut pengar ifrån: \n 1." + accName4[0] + " \n 2." + accName4[1]);
                 int witdrawAccount = Int32.Parse(Console.ReadLine());
-                Console.WriteLine("Hur stor summa vill du ta ut?");
-                int sum = Int32.Parse(Console.ReadLine());
+                bool transaction = false;
+                while (transaction == false)
+                {
+                    Console.WriteLine("Hur stor summa vill du ta ut?");
+                    double sum = Double.Parse(Console.ReadLine());
+                    if (sum > amount4[0] || sum > amount4[1])
+                    {
+                        Console.WriteLine("Summan är större än saldot på kontot, välj en mindre summa!");
+                        transaction = false;
+                    }
+                    else
+                    {
+                        transaction = true;
 
-                if (witdrawAccount == 1)
-                {
-                    amount4[0] = amount4[0] - sum;
-                }
-                else if (witdrawAccount == 2)
-                {
-                    amount4[1] = amount4[1] - sum;
+
+                        if (witdrawAccount == 1)
+                        {
+                            amount4[0] = amount4[0] - sum;
+                        }
+                        else if (witdrawAccount == 2)
+                        {
+                            amount4[1] = amount4[1] - sum;
+                        }
+                    }
                 }
 
                 Console.WriteLine("Ditt nya saldor är:");
@@ -764,28 +885,41 @@ namespace Individuellt_projekt
                 accName5[4] = "Fonder";
                 Console.WriteLine("Välj ett konto att ta ut pengar ifrån: \n 1." + accName5[0] + " \n 2." + accName5[1] + " \n 3." + accName5[2] + "\n 4." + accName5[3] + "\n 5." + accName5[4]);
                 int witdrawAccount = Int32.Parse(Console.ReadLine());
-                Console.WriteLine("Hur stor summa vill du ta ut?");
-                int sum = Int32.Parse(Console.ReadLine());
+                bool transaction = false;
+                while (transaction == false)
+                {
+                    Console.WriteLine("Hur stor summa vill du ta ut?");
+                    double sum = Double.Parse(Console.ReadLine());
+                    if (sum > amount5[0] || sum > amount5[1] || sum > amount5[2] || sum > amount5[3] || sum > amount5[4])
+                    {
+                        Console.WriteLine("Summan är större än saldot på kontot, välj en mindre summa!");
+                        transaction = false;
+                    }
+                    else
+                    {
+                        transaction = true;
 
-                if (witdrawAccount == 1)
-                {
-                    amount5[0] = amount5[0] - sum;
-                }
-                else if (witdrawAccount == 2)
-                {
-                    amount5[1] = amount5[1] - sum;
-                }
-                else if (witdrawAccount == 3)
-                {
-                    amount5[2] = amount5[2] - sum;
-                }
-                else if (witdrawAccount == 4)
-                {
-                    amount5[2] = amount5[2] - sum;
-                }
-                else if (witdrawAccount == 5)
-                {
-                    amount5[2] = amount5[2] - sum;
+                        if (witdrawAccount == 1)
+                        {
+                            amount5[0] = amount5[0] - sum;
+                        }
+                        else if (witdrawAccount == 2)
+                        {
+                            amount5[1] = amount5[1] - sum;
+                        }
+                        else if (witdrawAccount == 3)
+                        {
+                            amount5[2] = amount5[2] - sum;
+                        }
+                        else if (witdrawAccount == 4)
+                        {
+                            amount5[2] = amount5[2] - sum;
+                        }
+                        else if (witdrawAccount == 5)
+                        {
+                            amount5[2] = amount5[2] - sum;
+                        }
+                    }
                 }
 
                 Console.WriteLine("Ditt nya saldor är:");
