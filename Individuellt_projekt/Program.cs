@@ -1,5 +1,4 @@
-﻿//Ludwig Oleby SUT21
-using System;
+﻿using System;
 
 namespace Individuellt_projekt
 {
@@ -7,12 +6,74 @@ namespace Individuellt_projekt
     {
         static void Main(string[] args)
         {
+            //User 1
+            double[] amount1 = new double[3]; //Kontobelopp
+
+            amount1[0] = 20000;
+            amount1[1] = 2500;
+            amount1[2] = 98789.50;
+
+
+            string[] accName1 = new string[3]; //Kontonamn
+
+            accName1[0] = "Sparkonto";
+            accName1[1] = "Kortkonto";
+            accName1[2] = "Pensionskonto";
+
+            //User 2
+            double[] amount2 = new double[2];
+            amount2[0] = 45000;
+            amount2[1] = 576.40;
+
+            string[] accName2 = new string[2];
+            accName2[0] = "Sparkonto";
+            accName2[1] = "Kortkonto";
+
+            //User 3
+            double[] amount3 = new double[4];
+            amount3[0] = 20000;
+            amount3[1] = 2500;
+            amount3[2] = 150000;
+            amount3[3] = 125870;
+
+            string[] accName3 = new string[4];
+            accName3[0] = "Sparkonto";
+            accName3[1] = "Kortkonto";
+            accName3[2] = "Pensionskonto";
+            accName3[3] = "Aktiekonto";
+            //User 4
+            double[] amount4 = new double[2];
+
+            amount4[0] = 23000;
+            amount4[1] = 2543.30;
+
+            string[] accName4 = new string[2];
+            accName4[0] = "Sparkonto";
+            accName4[1] = "Kortkonto";
+            //User 5
+            double[] amount5 = new double[5];
+            amount5[0] = 20000;
+            amount5[1] = 2500;
+            amount5[2] = 98789.50;
+            amount5[3] = 500000;
+            amount5[4] = 150000;
+
+            string[] accName5 = new string[5];
+            accName5[0] = "Sparkonto";
+            accName5[1] = "Kortkonto";
+            accName5[2] = "Pensionskonto";
+            accName5[3] = "Aktiekonto";
+            accName5[4] = "Fonder";
+
+
+
 
             Console.WriteLine("Välkommen till Ludwigs internetbank!");
-            userLogin();
+            userLogin(0, amount1, accName1, amount2, accName2, amount3, accName3, amount4, accName4, amount5, accName5);
         }
 
-        public static void userLogin()
+
+        public static void userLogin(int currentUser, double[] amount1, string[] accName1, double[] amount2, string[] accName2, double[] amount3, string[] accName3, double[] amount4, string[] accName4, double[] amount5, string[] accName5)
 
         {
 
@@ -21,7 +82,6 @@ namespace Individuellt_projekt
             // User 1
             users[0, 0] = "User 1";
             users[0, 1] = "Password 1";
-
 
             // User 2
             users[1, 0] = "User 2";
@@ -41,8 +101,6 @@ namespace Individuellt_projekt
             //User 5
             users[4, 0] = "User 5";
             users[4, 1] = "Password 5";
-
-
             bool loginSucess = false;
             int loginAttempts = 0;
 
@@ -52,35 +110,31 @@ namespace Individuellt_projekt
                 string username = Console.ReadLine();
                 Console.WriteLine("Skriv in ditt lösenord");
                 string password = Console.ReadLine();
-                int currentUser = 0; //Avgör vilken användare som är inloggad
+
+
 
                 if (username == users[0, 0] && password == users[0, 1])
                 {
-                    currentUser = 1;
-                    userMenu(1);
+                    userMenu(1, amount1, accName1, amount2, accName2, amount3, accName3, amount4, accName4, amount5, accName5);
                 }
                 else if (username == users[1, 0] && password == users[1, 1])
                 {
-                    currentUser = 2;
-                    userMenu(2);
+                    userMenu(2, amount1, accName1, amount2, accName2, amount3, accName3, amount4, accName4, amount5, accName5);
                 }
 
                 else if (username == users[2, 0] && password == users[2, 1])
                 {
-                    currentUser = 3;
-                    userMenu(3);
+                    userMenu(3, amount1, accName1, amount2, accName2, amount3, accName3, amount4, accName4, amount5, accName5);
                 }
 
                 else if (username == users[3, 0] && password == users[3, 1])
                 {
-                    currentUser = 4;
-                    userMenu(4);
+                    userMenu(4, amount1, accName1, amount2, accName2, amount3, accName3, amount4, accName4, amount5, accName5);
                 }
 
                 else if (username == users[4, 0] && password == users[4, 1])
                 {
-                    currentUser = 5;
-                    userMenu(5);
+                    userMenu(5, amount1, accName1, amount2, accName2, amount3, accName3, amount4, accName4, amount5, accName5);
                 }
                 else
                 {
@@ -95,7 +149,7 @@ namespace Individuellt_projekt
             }
         }
 
-        public static int userMenu(int currentUser)
+        public static int userMenu(int currentUser, double[] amount1, string[] accName1, double[] amount2, string[] accName2, double[] amount3, string[] accName3, double[] amount4, string[] accName4, double[] amount5, string[] accName5)
         {
             Console.Clear();
             Console.WriteLine("Välj tjänst: \n1. Se dina konton och saldo \n2. Överföring mellan konton \n3. Ta ut pengar \n4. Logga ut");
@@ -105,18 +159,18 @@ namespace Individuellt_projekt
             switch (userChoice)
             {
                 case 1:
-                    accountOverview(currentUser);
+                    accountOverview(currentUser, amount1, accName1, amount2, accName2, amount3, accName3, amount4, accName4, amount5, accName5);
                     break;
                 case 2:
-                    transfer(currentUser);
+                    transfer(currentUser, amount1, accName1, amount2, accName2, amount3, accName3, amount4, accName4, amount5, accName5);
                     break;
                 case 3:
-                    withdraw(currentUser);
+                    withdraw(currentUser, amount1, accName1, amount2, accName2, amount3, accName3, amount4, accName4, amount5, accName5);
                     break;
                 case 4:
                     Console.WriteLine("Du loggas nu ut, tryck på valfri tangent för att fortsätta . . .");
                     Console.ReadKey();
-                    userLogin();
+                    userLogin(currentUser, amount1, accName1, amount2, accName2, amount3, accName3, amount4, accName4, amount5, accName5);
                     break;
                 default:
                     Console.WriteLine("Ogiltligt val!");
@@ -125,23 +179,15 @@ namespace Individuellt_projekt
             return currentUser;
         }
 
-        public static int accountOverview(int currentUser) //Skriver ut kontoinformation till konsollen.
+
+
+        public static int accountOverview(int currentUser, double[] amount1, string[] accName1, double[] amount2, string[] accName2, double[] amount3, string[] accName3, double[] amount4, string[] accName4, double[] amount5, string[] accName5) //Skriver ut kontoinformation till konsollen.
         {
+
             if (currentUser == 1) //User 1
             {
                 Console.Clear();
-                double[] amount1 = new double[3]; //Kontobelopp
 
-                amount1[0] = 20000;
-                amount1[1] = 2500;
-                amount1[2] = 98789.50;
-
-                
-                string[] accName1 = new string[3]; //Kontonamn
-
-                accName1[0] = "Sparkonto";
-                accName1[1] = "Kortkonto";
-                accName1[2] = "Pensionskonto";
 
                 for (int i = 0; i < amount1.Length; i++) //For-loop som skriver ut kontobelopp och kontonamn
                 {
@@ -151,18 +197,12 @@ namespace Individuellt_projekt
                 }
                 Console.WriteLine("Tryck på enter för att komma till huvudmenyn");
                 Console.ReadKey();
-                userMenu(1);
+                userMenu(1, amount1, accName1, amount2, accName2, amount3, accName3, amount4, accName4, amount5, accName5);
 
             }
             if (currentUser == 2) //User 2
             {
-                double[] amount2 = new double[2];
-                amount2[0] = 45000;
-                amount2[1] = 576.40;
 
-                string[] accName2 = new string[2];
-                accName2[0] = "Sparkonto";
-                accName2[1] = "Kortkonto";
 
                 for (int i = 0; i < amount2.Length; i++)
                 {
@@ -172,22 +212,12 @@ namespace Individuellt_projekt
                 }
                 Console.WriteLine("Tryck på enter för att komma till huvudmenyn");
                 Console.ReadKey();
-                userMenu(2);
+                userMenu(2, amount1, accName1, amount2, accName2, amount3, accName3, amount4, accName4, amount5, accName5);
 
             }
             if (currentUser == 3) //User 3
             {
-                double[] amount3 = new double[4];
-                amount3[0] = 20000;
-                amount3[1] = 2500;
-                amount3[2] = 150000;
-                amount3[3] = 125870;
 
-                string[] accName3 = new string[4];
-                accName3[0] = "Sparkonto";
-                accName3[1] = "Kortkonto";
-                accName3[2] = "Pensionskonto";
-                accName3[3] = "Aktiekonto";
 
                 for (int i = 0; i < amount3.Length; i++)
                 {
@@ -197,18 +227,11 @@ namespace Individuellt_projekt
                 }
                 Console.WriteLine("Tryck på enter för att komma till huvudmenyn");
                 Console.ReadKey();
-                userMenu(3);
+                userMenu(3, amount1, accName1, amount2, accName2, amount3, accName3, amount4, accName4, amount5, accName5);
             }
             if (currentUser == 4) //User 4
             {
-                double[] amount4 = new double[2];
 
-                amount4[0] = 23000;
-                amount4[1] = 2543.30;
-
-                string[] accName4 = new string[2];
-                accName4[0] = "Sparkonto";
-                accName4[1] = "Kortkonto";
 
                 for (int i = 0; i < amount4.Length; i++)
                 {
@@ -218,23 +241,11 @@ namespace Individuellt_projekt
                 }
                 Console.WriteLine("Tryck på enter för att komma till huvudmenyn");
                 Console.ReadKey();
-                userMenu(4);
+                userMenu(4, amount1, accName1, amount2, accName2, amount3, accName3, amount4, accName4, amount5, accName5);
             }
             if (currentUser == 5) //User 5
             {
-                double[] amount5 = new double[5];
-                amount5[0] = 20000;
-                amount5[1] = 2500;
-                amount5[2] = 98789.50;
-                amount5[3] = 500000;
-                amount5[4] = 150000;
 
-                string[] accName5 = new string[5];
-                accName5[0] = "Sparkonto";
-                accName5[1] = "Kortkonto";
-                accName5[2] = "Pensionskonto";
-                accName5[3] = "Aktiekonto";
-                accName5[4] = "Fonder";
 
                 for (int i = 0; i < amount5.Length; i++)
                 {
@@ -244,28 +255,17 @@ namespace Individuellt_projekt
                 }
                 Console.WriteLine("Tryck på enter för att komma till huvudmenyn");
                 Console.ReadKey();
-                userMenu(5);
+                userMenu(5, amount1, accName1, amount2, accName2, amount3, accName3, amount4, accName4, amount5, accName5);
             }
             return currentUser; //Returnerar int currentUser för att undvika felet "not all cod paths return a value"
         }
 
-        public static int transfer(int currentUser)
+        public static int transfer(int currentUser, double[] amount1, string[] accName1, double[] amount2, string[] accName2, double[] amount3, string[] accName3, double[] amount4, string[] accName4, double[] amount5, string[] accName5)
         {
             //User 1
             if (currentUser == 1)
             {
-                double[] amount1 = new double[3];
 
-                amount1[0] = 20000;
-                amount1[1] = 2500;
-                amount1[2] = 98789.50;
-
-
-                string[] accName1 = new string[3];
-
-                accName1[0] = "Sparkonto";
-                accName1[1] = "Kortkonto";
-                accName1[2] = "Pensionskonto";
 
 
                 Console.WriteLine("Välj ett konto att flytta pengar ifrån: \n 1." + accName1[0] + " \n 2." + accName1[1] + " \n 3." + accName1[2]);
@@ -325,20 +325,14 @@ namespace Individuellt_projekt
                 }
                 Console.WriteLine("Tryck på enter för att komma till huvudmenyn");
                 Console.ReadKey();
-                userMenu(1); //Återvänder till metoden "userMenu"
+                userMenu(1, amount1, accName1, amount2, accName2, amount3, accName3, amount4, accName4, amount5, accName5); //Återvänder till metoden "userMenu"
             }
 
 
             //User 2
             else if (currentUser == 2)
             {
-                double[] amount2 = new double[2];
-                amount2[0] = 45000;
-                amount2[1] = 576.40;
 
-                string[] accName2 = new string[2];
-                accName2[0] = "Sparkonto";
-                accName2[1] = "Kortkonto";
 
                 Console.WriteLine("Välj ett konto att flytta pengar ifrån: \n 1." + accName2[0] + " \n 2." + accName2[1]);
                 int transferAccount = Int32.Parse(Console.ReadLine());
@@ -389,23 +383,13 @@ namespace Individuellt_projekt
                 }
                 Console.WriteLine("Tryck på enter för att komma till huvudmenyn");
                 Console.ReadKey();
-                userMenu(2);
+                userMenu(2, amount1, accName1, amount2, accName2, amount3, accName3, amount4, accName4, amount5, accName5);
             }
 
             //User 3
             else if (currentUser == 3)
             {
-                double[] amount3 = new double[4];
-                amount3[0] = 20000;
-                amount3[1] = 2500;
-                amount3[2] = 150000;
-                amount3[3] = 125870;
 
-                string[] accName3 = new string[4];
-                accName3[0] = "Sparkonto";
-                accName3[1] = "Kortkonto";
-                accName3[2] = "Pensionskonto";
-                accName3[3] = "Aktiekonto";
 
                 Console.WriteLine("Välj ett konto att flytta pengar ifrån: \n 1." + accName3[0] + " \n 2." + accName3[1] + " \n 3." + accName3[2] + "\n 4." + accName3[3]);
                 int transferAccount = Int32.Parse(Console.ReadLine());
@@ -471,20 +455,13 @@ namespace Individuellt_projekt
                 }
                 Console.WriteLine("Tryck på enter för att komma till huvudmenyn");
                 Console.ReadKey();
-                userMenu(3);
+                userMenu(3, amount1, accName1, amount2, accName2, amount3, accName3, amount4, accName4, amount5, accName5);
             }
 
             //User 4
             else if (currentUser == 4)
             {
-                double[] amount4 = new double[2];
 
-                amount4[0] = 23000;
-                amount4[1] = 2543.30;
-
-                string[] accName4 = new string[2];
-                accName4[0] = "Sparkonto";
-                accName4[1] = "Kortkonto";
 
                 Console.WriteLine("Välj ett konto att flytta pengar ifrån: \n 1." + accName4[0] + " \n 2." + accName4[1]);
                 int transferAccount = Int32.Parse(Console.ReadLine());
@@ -526,36 +503,24 @@ namespace Individuellt_projekt
                     }
                 }
 
-                    Console.WriteLine("Ditt nya saldor är:");
+                Console.WriteLine("Ditt nya saldor är:");
 
-                    for (int i = 0; i < amount4.Length; i++)
-                    {
-                        Console.Write(accName4[i] + ":");
-                        Console.Write(amount4[i]);
-                        Console.WriteLine();
-                    }
-                    Console.WriteLine("Tryck på enter för att komma till huvudmenyn");
-                    Console.ReadKey();
-                    userMenu(4);
-                
+                for (int i = 0; i < amount4.Length; i++)
+                {
+                    Console.Write(accName4[i] + ":");
+                    Console.Write(amount4[i]);
+                    Console.WriteLine();
+                }
+                Console.WriteLine("Tryck på enter för att komma till huvudmenyn");
+                Console.ReadKey();
+                userMenu(4, amount1, accName1, amount2, accName2, amount3, accName3, amount4, accName4, amount5, accName5);
+
             }
 
             //User 5
             else if (currentUser == 5)
             {
-                double[] amount5 = new double[5];
-                amount5[0] = 20000;
-                amount5[1] = 2500;
-                amount5[2] = 98789.50;
-                amount5[3] = 500000;
-                amount5[4] = 150000;
 
-                string[] accName5 = new string[5];
-                accName5[0] = "Sparkonto";
-                accName5[1] = "Kortkonto";
-                accName5[2] = "Pensionskonto";
-                accName5[3] = "Aktiekonto";
-                accName5[4] = "Fonder";
 
                 Console.WriteLine("Välj ett konto att flytta pengar ifrån: \n 1." + accName5[0] + " \n 2." + accName5[1] + " \n 3." + accName5[2] + "\n 4." + accName5[3] + "\n 5." + accName5[4]);
                 int transferAccount = Int32.Parse(Console.ReadLine());
@@ -630,29 +595,18 @@ namespace Individuellt_projekt
                 }
                 Console.WriteLine("Tryck på enter för att komma till huvudmenyn");
                 Console.ReadKey();
-                userMenu(5);
+                userMenu(5, amount1, accName1, amount2, accName2, amount3, accName3, amount4, accName4, amount5, accName5);
             }
 
             return currentUser;
         }
 
-        public static int withdraw(int currentUser)
+        public static int withdraw(int currentUser, double[] amount1, string[] accName1, double[] amount2, string[] accName2, double[] amount3, string[] accName3, double[] amount4, string[] accName4, double[] amount5, string[] accName5)
         {
             //user 1
             if (currentUser == 1)
             {
-                double[] amount1 = new double[3];
 
-                amount1[0] = 20000;
-                amount1[1] = 2500;
-                amount1[2] = 98789.50;
-
-
-                string[] accName1 = new string[3];
-
-                accName1[0] = "Sparkonto";
-                accName1[1] = "Kortkonto";
-                accName1[2] = "Pensionskonto";
 
                 Console.WriteLine("välj vilket konto du vill ta ut pengar ifrån: \n1." + accName1[0] + "\n 2." + accName1[1] + "\n3." + accName1[2]);
                 int witdrawAccount = Int32.Parse(Console.ReadLine());
@@ -695,19 +649,13 @@ namespace Individuellt_projekt
                 }
                 Console.WriteLine("Tryck på enter för att komma till huvudmenyn");
                 Console.ReadKey();
-                userMenu(1);
+                userMenu(1, amount1, accName1, amount2, accName2, amount3, accName3, amount4, accName4, amount5, accName5);
             }
 
             //user 2
             else if (currentUser == 2)
             {
-                double[] amount2 = new double[2];
-                amount2[0] = 45000;
-                amount2[1] = 576.40;
 
-                string[] accName2 = new string[2];
-                accName2[0] = "Sparkonto";
-                accName2[1] = "Kortkonto";
 
                 Console.WriteLine("välj ett konto att ta ut pengar ifrån: \n1." + accName2[0] + "\n 2." + accName2[1]);
                 int witdrawAccount = Int32.Parse(Console.ReadLine());
@@ -737,32 +685,22 @@ namespace Individuellt_projekt
                     }
                 }
 
-                        for (int i = 0; i < amount2.Length; i++)
-                        {
-                            Console.Write(accName2[i] + ":");
-                            Console.Write(amount2[i]);
-                            Console.WriteLine();
-                        }
-                        Console.WriteLine("Tryck på enter för att komma till huvudmenyn");
-                        Console.ReadKey();
-                        userMenu(2);
+                for (int i = 0; i < amount2.Length; i++)
+                {
+                    Console.Write(accName2[i] + ":");
+                    Console.Write(amount2[i]);
+                    Console.WriteLine();
+                }
+                Console.WriteLine("Tryck på enter för att komma till huvudmenyn");
+                Console.ReadKey();
+                userMenu(2, amount1, accName1, amount2, accName2, amount3, accName3, amount4, accName4, amount5, accName5);
             }
 
 
             //user 3
             else if (currentUser == 3)
             {
-                double[] amount3 = new double[4];
-                amount3[0] = 20000;
-                amount3[1] = 2500;
-                amount3[2] = 150000;
-                amount3[3] = 125870;
 
-                string[] accName3 = new string[4];
-                accName3[0] = "Sparkonto";
-                accName3[1] = "Kortkonto";
-                accName3[2] = "Pensionskonto";
-                accName3[3] = "Aktiekonto";
 
                 Console.WriteLine("Välj ett konto att ta ut pengar ifrån: \n 1." + accName3[0] + " \n 2." + accName3[1] + " \n 3." + accName3[2] + "\n 4." + accName3[3]);
                 int witdrawAccount = Int32.Parse(Console.ReadLine());
@@ -809,20 +747,13 @@ namespace Individuellt_projekt
                 }
                 Console.WriteLine("Tryck på enter för att komma till huvudmenyn");
                 Console.ReadKey();
-                userMenu(3);
+                userMenu(3, amount1, accName1, amount2, accName2, amount3, accName3, amount4, accName4, amount5, accName5);
             }
 
             //user 4
             else if (currentUser == 4)
             {
-                double[] amount4 = new double[2];
 
-                amount4[0] = 23000;
-                amount4[1] = 2543.30;
-
-                string[] accName4 = new string[2];
-                accName4[0] = "Sparkonto";
-                accName4[1] = "Kortkonto";
 
                 Console.WriteLine("Välj ett konto att ta ut pengar ifrån: \n 1." + accName4[0] + " \n 2." + accName4[1]);
                 int witdrawAccount = Int32.Parse(Console.ReadLine());
@@ -862,26 +793,14 @@ namespace Individuellt_projekt
                 }
                 Console.WriteLine("Tryck på enter för att komma till huvudmenyn");
                 Console.ReadKey();
-                userMenu(4);
+                userMenu(4, amount1, accName1, amount2, accName2, amount3, accName3, amount4, accName4, amount5, accName5);
             }
 
 
             //user 5
             else if (currentUser == 5)
             {
-                double[] amount5 = new double[5];
-                amount5[0] = 20000;
-                amount5[1] = 2500;
-                amount5[2] = 98789.50;
-                amount5[3] = 500000;
-                amount5[4] = 150000;
 
-                string[] accName5 = new string[5];
-                accName5[0] = "Sparkonto";
-                accName5[1] = "Kortkonto";
-                accName5[2] = "Pensionskonto";
-                accName5[3] = "Aktiekonto";
-                accName5[4] = "Fonder";
                 Console.WriteLine("Välj ett konto att ta ut pengar ifrån: \n 1." + accName5[0] + " \n 2." + accName5[1] + " \n 3." + accName5[2] + "\n 4." + accName5[3] + "\n 5." + accName5[4]);
                 int witdrawAccount = Int32.Parse(Console.ReadLine());
                 bool transaction = false;
@@ -931,14 +850,14 @@ namespace Individuellt_projekt
                 }
                 Console.WriteLine("Tryck på enter för att komma till huvudmenyn");
                 Console.ReadKey();
-                userMenu(5);
+                userMenu(5, amount1, accName1, amount2, accName2, amount3, accName3, amount4, accName4, amount5, accName5);
             }
 
-            
+
             return currentUser;
-            
-            
+
+
         }
-      
+
     }
 }
